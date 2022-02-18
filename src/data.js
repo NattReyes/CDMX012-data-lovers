@@ -1,9 +1,14 @@
-// estas funciones son de ejemplo
-
 export const example = () => {
-  return 'example';
-};
+}
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+  export const drawElement = (film) => {
+    return `<section id="card">
+    <img src="${film.poster}" alt="">
+  </section>`
+  
+  };
+  
+  
+  //return 'example';
+//export const filterDirector = Director.filter (function(){return Director})
+
