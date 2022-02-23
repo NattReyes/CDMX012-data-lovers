@@ -1,14 +1,17 @@
-export const example = () => {
-}
-
-  export const drawElement = (film) => {
+ /* export const drawElement = (film) => {
     return `<section id="card">
     <img src="${film.poster}" alt="">
   </section>`
   
-  };
-  
-  
-  //return 'example';
-//export const filterDirector = Director.filter (function(){return Director})
+  };*/
+export const filterItems = (film, newArray) => {
+  if(film === ""){
+    return[];
+  }
+  let arrayItems= newArray.map((films) => films[film])
+  return arrayItems
 
+};
+
+
+  

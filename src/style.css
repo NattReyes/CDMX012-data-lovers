@@ -56,13 +56,13 @@ nav {
   }
 
  nav img {
-    width: 10%;
+    width: 8%;
     position: absolute; 
     top: 1%;
     left: 5%;
 } 
 
-#root {
+#windowFilm, #windowPeople {
   display: flex;
   flex-wrap: wrap;
   display: grid;
@@ -72,6 +72,8 @@ nav {
   grid-auto-rows: minmax(100px, auto);
   padding-top: 10%;
   padding-left: 5%;
+ 
+  
 }
 
 #personajes{
@@ -79,3 +81,12 @@ nav {
   background-color: #FEE7BA;
   }
   
+  /*.cuadrado {
+    width: 85%; 
+    height: 85%; 
+    background: rgb(167, 164, 164);
+    position: absolute;
+    opacity: 70%;
+    top:20%;
+    left: 3%;
+}*/
