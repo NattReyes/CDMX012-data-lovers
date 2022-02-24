@@ -9,9 +9,9 @@ export const filterItems = (film, newArray) => {
     return[];
   }
   let arrayItems= newArray.map((films) => films[film])
-  return arrayItems
+  return arrayItems;
 
 };
-
+console.log(filterItems);
 
   

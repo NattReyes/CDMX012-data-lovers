@@ -19,22 +19,36 @@ function filmoItems (films){
   films.forEach((film) => {
     const createElement= document.createElement("div")
     createElement.setAttribute("class", 'contenedorCardFilm');
-      const containerFilm= ` <div class="box1">
+      const containerFilm= 
+      `<div id= "divCardFilm">
+      <div class="frontCard">
+      <div class="box1">
       <img src= ${film.poster} id ="imgPosterFilm"></div> 
-      <div class = "conteinerTextFilm">
       <ul>
-     <li>${film.title} </li>
-     <li>Score: ${film.rt_score}</li>
-     <li>Año: ${film.release_date}</li>
+      <li>Titulo: ${film.title} </li>
+      <li>Score: ${film.rt_score}</li>
+      <li>Año: ${film.release_date}</li> 
+      </ul>
+      </div>
+      
+      <div class = "backCard">
+      <ul>
+         <li>Descripción: ${film.description}</li>
+        <li>Productor: ${film.producer}</li>
+        <li>Director ${film.director}</li>
+    
   </ul>
   </div>
-  `;
+  </div>`;
+ 
+     
    createElement.innerHTML= containerFilm
    windowFilm.appendChild(createElement);
    return containerFilm;
-  } )
+  })
   }
   filmoItems(films);
+  
   
  
 document.getElementById("personajes").addEventListener("click", ()=>{
@@ -48,14 +62,21 @@ document.getElementById("personajes").addEventListener("click", ()=>{
       const createElement= document.createElement("div")
       createElement.setAttribute("class", 'contenedorCardPeople');
 
-      const containerPeople= ` <div class="box2">
-      <img src= ${film.img} id ="imgPosterPeople"></div> 
-      <div class = "conteinerTextPeople">
+      const containerPeople= `<div id= "divCardPeople">
+      <div class="frontCard1">
+      
+      <div class="box2"><img src= ${film.img} id ="imgPosterPeople"></div> 
+      <h4>${film.name} </h4>
+      </div>
+      <div class="backCard1">
       <ul>
-     <li>${film.name} </li>
-  </ul>
-  </div>
-  `;
+      <p7>Genero: ${film.gender}</p7>
+      <p8>Color de Ojos: ${film.eye_color}</p8>
+      <p9>Color de Cabello: ${film.hair_color}</p9>
+      <p10>Especie: ${film.specie}</p10>     
+    </ul>
+    </div>
+    </div>`;
 
 
      
@@ -64,6 +85,11 @@ document.getElementById("personajes").addEventListener("click", ()=>{
     return containerPeople;
     });
     }
+    
     peopleItems(filterItems("people", films).flat(1));
     
   })
+
+  document.getElementById("locations").addEventListener("click", ()=>{
+    document.getElementById("windowFilm").style.display="none";
+    document.getElementById("windowPeople").style.display="none";})
