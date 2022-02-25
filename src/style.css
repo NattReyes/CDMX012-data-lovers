@@ -62,7 +62,22 @@ nav {
     left: 5%;
 } 
 
-#windowFilm, #windowPeople {
+#windowFilm {
+  display: flex;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 80px;
+  justify-content: space-around;
+  grid-auto-rows: minmax(50px, 320px);
+  padding-top: 8%;
+  padding-left: 5%;
+  padding-right: 5%;
+  
+ 
+}
+
+#windowPeople {
   display: flex;
   flex-wrap: wrap;
   display: grid;
@@ -70,10 +85,10 @@ nav {
   grid-gap: 10px;
   justify-content: space-between;
   grid-auto-rows: minmax(100px, auto);
-  padding-top: 10%;
+  padding-top: 8%;
+  padding-right: 5%;
   padding-left: 5%;
  
-  
 }
 
 #personajes{
@@ -91,32 +106,25 @@ nav {
     left: 3%;
 }*/
 
-.contenedorCardPeople{
-  display:flex ;
+.contenedorCardPeople, .contenedorCarFilm{
+  display: flex;
   height: 200px;
-  width:140px;
+  width: 140px;
   margin:auto;
   margin-bottom: 50px;
   position: relative;
+  
 }
 
- .contenedorCarFilm{
-  display:flex ;
-  height: 250px;
-  width:200px;
-  margin:auto;
-  margin-bottom: 50px;
-  position: relative;
-}
-
-#divCardPeople, #divCardFilm {
+ #divCardFilm, #divCardPeople {
   height: 100%;
-  width:100%;
+  width: 100%;
   position: relative;
   transform-style: preserve-3d;
   transition: 0s;
   flex-direction: column;
 }
+
 
 #divCardPeople:hover{
  transform: rotateY(180deg);
@@ -133,20 +141,19 @@ nav {
 
 
 #imgPosterFilm{
-  width:100%;
-  height:100%;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  /*object-fit: cover;*/
   border-radius: 20px
 }
 
 #imgPosterPeople{
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 20px
 }
-.frontCard, .backCard, .backCard1,
-.frontCard1{
+.frontCard, .backCard{
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -154,21 +161,23 @@ nav {
   border-radius: 20px;
 }
 
-/*.frontCard{
-  background:  rgba(178, 134, 184, 0.37); 
+.backCard1, .frontCard1{
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 20px;
+}
+
+.frontCard, .frontCard1{ 
   justify-content: center;
   text-align: center;
-  top: 0%;
-  left: 0%;
-  margin:0;
-  text-align: center;
-  font-size: 0.8em;
   font-family: Cambria;
 
-}*/
+}
 
 .backCard, .backCard1{
-  background:#F2C46D;
+  background:#f3b94c;
   transform: rotateY(180deg);
   align-items: center;
   display: flex;
@@ -237,3 +246,13 @@ nav {
   font-size: 0.875em;
   font-family: Cambria;
 }*/
+
+footer{
+  display: flex;
+  justify-content: center;
+  background-color: #FFF2D9;
+  font-family: Cambria;
+  height: 50px;
+  text-align: center;
+  
+}
