@@ -9,7 +9,14 @@ export const filterItems = (film, newArray) => {
     return[];
   }
   let arrayItems= newArray.map((films) => films[film])
+<<<<<<< HEAD
   return arrayItems;
+=======
+  console.log(arrayItems);
+
+  return arrayItems;
+
+>>>>>>> windowFilm&People
 };
   /*export const order = (films) =>{
 let abc = films.sort();
@@ -41,4 +48,7 @@ export const filterProducers = (films, producer) => {
 
 
 
-  
+export function filterPeople(film) {
+ let filterPeople= filterItems.filter(film.gender='male');
+ console.log(filterPeople);
+}   
