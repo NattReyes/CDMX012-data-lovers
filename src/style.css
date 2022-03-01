@@ -70,7 +70,7 @@ nav {
   grid-gap: 80px;
   justify-content: space-around;
   grid-auto-rows: minmax(50px, 320px);
-  padding-top: 8%;
+  padding-top: 3%;
   padding-left: 5%;
   padding-right: 5%;
   
@@ -88,13 +88,23 @@ nav {
   padding-top: 8%;
   padding-right: 5%;
   padding-left: 5%;
-<<<<<<< HEAD
-=======
  
->>>>>>> windowFilm&People
 }
 
-#personajes, #ubicaciones, #peliculas{
+#windowLocations {
+  display: flex;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  justify-content: space-between;
+  grid-auto-rows: minmax(100px, auto);
+  padding-top: 8%;
+  padding-right: 5%;
+  padding-left: 5%;
+ 
+}
+#personajes, #ubicaciones, #films{
   border: none;
   background-color: #FEE7BA;
   }
@@ -109,7 +119,6 @@ nav {
     left: 3%;
 }*/
 
-<<<<<<< HEAD
 /* THE MAINCONTAINER HOLDS EVERYTHING */
 /*#windowLocations {
   position: absolute;
@@ -173,8 +182,7 @@ nav {
 }
 */
 
-=======
-.contenedorCardPeople, .contenedorCarFilm{
+.contenedorCardPeople, .contenedorCarFilm, .containerCardLocations{
   display: flex;
   height: 200px;
   width: 140px;
@@ -184,7 +192,7 @@ nav {
   
 }
 
- #divCardFilm, #divCardPeople {
+ #divCardFilm, #divCardPeople, #divCardLocation{
   height: 100%;
   width: 100%;
   position: relative;
@@ -202,7 +210,11 @@ nav {
   transform: rotateY(180deg);
 }
 
-.box1, .box2{
+#divCardLocation:hover{
+  transform: rotateY(180deg);
+}
+
+.box1, .box2, .box3{
   width:100%;
   height:100%;
 }
@@ -216,6 +228,13 @@ nav {
 }
 
 #imgPosterPeople{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px
+}
+
+#imgPosterLocations{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -237,14 +256,21 @@ nav {
   border-radius: 20px;
 }
 
-.frontCard, .frontCard1{ 
+.backCard2, .frontCard2{
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 20px;
+}
+.frontCard, .frontCard1, .frontCard2{ 
   justify-content: center;
   text-align: center;
   font-family: Cambria;
 
 }
 
-.backCard, .backCard1{
+.backCard, .backCard1, .backCard2{
   background:#f3b94c;
   transform: rotateY(180deg);
   align-items: center;
@@ -324,4 +350,8 @@ footer{
   text-align: center;
   
 }
->>>>>>> windowFilm&People
+
+#filterFilms{
+  padding-top: 7%;
+  padding-left: 30%;
+}
