@@ -97,3 +97,4 @@ function filmoItems (films){
   let windowLocations = document.getElementById ('windowLocations');
   windowLocations.innerHTML='Hola';
 
+/*Filtro personajes*/

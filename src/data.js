@@ -9,9 +9,14 @@ export const filterItems = (film, newArray) => {
     return[];
   }
   let arrayItems= newArray.map((films) => films[film])
+  console.log(arrayItems);
+
   return arrayItems;
 
 };
-console.log(filterItems);
 
-  
+
+export function filterPeople(film) {
+ let filterPeople= filterItems.filter(film.gender='male');
+ console.log(filterPeople);
+}   
