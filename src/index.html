@@ -58,16 +58,32 @@
         <option value="Yoshiaki Nishimura">Yoshiaki Nishimura</option>
         <!--<option value="All">All</option>-->
       </select>
+      <select name="order" id="order">
+        <option disabled selected>Choose an order</option>
+        <option value="abc">A-Z order</option>
+        <option value="zyx">Z-A order</option>
+    </select>
+
     </section>
       <section id="windowFilm">    
       </section>
     </section>
-
-    <section id="windowPeople"> 
-      <select name="select">
-        <option value="Género">Femenino</option>
-        <option value="Especie">Masculino</option>
-      </select>       
+    <section id="allPeople">
+      <section id="filterPeople">
+          <select name="filterGender" id="filterGender">
+          <option disabled selected>Choose a gender</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+         <!-- <option value="All">All</option>-->
+        </select>
+        <select name="filterSpecie" id="filterSpecie">
+          <option disabled selected>Choose a specie</option>
+          <option value="Human">Human</option>
+          <!--<option value="All">All</option>-->
+        </select>
+      </section>
+    <section id="windowPeople">        
+    </section>
     </section>
    <section id="windowLocations">
     </section>  

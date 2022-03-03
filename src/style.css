@@ -85,7 +85,7 @@ nav {
   grid-gap: 10px;
   justify-content: space-between;
   grid-auto-rows: minmax(100px, auto);
-  padding-top: 8%;
+  padding-top: 3%;
   padding-right: 5%;
   padding-left: 5%;
  
@@ -351,7 +351,7 @@ footer{
   
 }
 
-#filterFilms{
+#filterFilms, #filterPeople{
   padding-top: 7%;
   padding-left: 30%;
 }
