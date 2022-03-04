@@ -1,61 +1,38 @@
 import data from './data/ghibli/ghibli.js';
-/*import { example, drawElement } from './data.js';*/
 import {  filterItems } from './data.js';
 import { filterDirectors } from './data.js'
 import { filterProducers, alphOrder } from './data.js'
 
-/*import { filterDirector } from './data.js'*/
-/*console.log(example, data);*/
-
-/*const allDataFilm = data.films;
-const root = document.getElementById('root');
-for(let i=0; i<=allDataFilm.length; i++){
-    root.innerHTML += drawElement(allDataFilm[i]);
-  }*/
   let director = '';
   let films = [];
   films = data.films;
-/* data.films.forEach(film => {
-  insertHTML += filterItems (film)
-}) */
-
-  /*Cambiar de pestanas*/
-  
-  
-
-
-
-  
-
- 
 
 /*Pestaña de peliculas*/
 document.getElementById("allFilms").style.display="";
 document.getElementById("allPeople").style.display="none";
-/*document.getElementById("windowLocations").style.display="none";*/
-let windowFilm = document.getElementById ('windowFilm');
-function filmoItems (films){
-  films.forEach((film) => {
+  let windowFilm = document.getElementById ('windowFilm');
+    function filmoItems (films){
+    films.forEach((film) => {
     const createElement= document.createElement("div")
     createElement.setAttribute("class", 'contenedorCardFilm');
-      const containerFilm= 
+    const containerFilm= 
       `<div id= "divCardFilm">
       <div class="frontCard">
       <div class="box1"><img src= ${film.poster} id ="imgPosterFilm"></div>         
-      <ul>
-        <p1><b>${film.title} </b></p1></br>
-        <p2><b>Score:</b> ${film.rt_score}</p2> </br>
-        <p3><b>Año:</b> ${film.release_date}</p3> </br>
-        </ul>
-        </div>
-        <div class="backCard">
         <ul>
-           <p4>${film.description}</p4></br>
-          <p5><b>Productor:</b> ${film.producer}</p5></br>
-          <p6><b>Director: </b>${film.director}</p6>
+          <p><b>${film.title} </b></p>
+          <p><b>Score:</b> ${film.rt_score}</p>
+          <p><b>Release date:</b> ${film.release_date}</p>
         </ul>
+      </div>
+        <div class="backCard">
+          <ul>
+            <p>${film.description}</p>
+            <p><b>Producer:</b> ${film.producer}</p>
+            <p><b>Director:</b>${film.director}</p>
+          </ul>
         </div>
-    </div>`
+      </div>`
 
    createElement.innerHTML= containerFilm;
     windowFilm.appendChild(createElement);
@@ -69,8 +46,6 @@ function filmoItems (films){
     document.getElementById("allPeople").style.display="none";
     document.getElementById("windowLocations").style.display="none";})
 
-    
-
 /*Pestaña de personajes*/
 document.getElementById("personajes").addEventListener("click", ()=>{
   document.getElementById("allFilms").style.display="none";
@@ -79,28 +54,29 @@ document.getElementById("personajes").addEventListener("click", ()=>{
   document.getElementById("windowLocations").style.display="none";
   
   let windowPeople = document.getElementById ('windowPeople');
-function peopleItems (films) {
-  films.forEach((film) => {    
-    const createElement= document.createElement("div")
-    createElement.setAttribute("class", 'contenedorCardPeople');
+    function peopleItems (films) {
+    films.forEach((film) => {    
+      const createElement= document.createElement("div")
+      createElement.setAttribute("class", 'contenedorCardPeople');
 
     const containerPeople= `<div id= "divCardPeople">
     <div class="frontCard1">
-    <div class="box2"><img src= ${film.img} id ="imgPosterPeople"></div> 
-    <h4><b>${film.name} </b></h4>
-    </div>
-    <div class="backCard1">
-    <ul>
-    <p7><b>Genero: </b>${film.gender}</p7></br>
-    <p8><b>Color de Ojos:</b> ${film.eye_color}</p8></br>
-    <p9><b>Color de Cabello: </b>${film.hair_color}</p9></br>
-    <p10><b>Especie:</b> ${film.specie}</p10>     
-  </ul>
-  </div>
-  </div>`;
-  createElement.innerHTML= containerPeople;
-  windowPeople.appendChild(createElement);
-  return containerPeople;
+      <div class="box2"><img src= ${film.img} id ="imgPosterPeople">
+    </div> 
+        <h4><b>${film.name} </b></h4>
+      </div>
+        <div class="backCard1">
+          <ul>
+            <p><b>Gender:</b>${film.gender}</p>
+            <p><b>Eye color:</b> ${film.eye_color}</p>
+            <p><b>Hair color:</b>${film.hair_color}</p>
+            <p><b>Specie:</b>${film.specie}</p>     
+          </ul>
+        </div>
+    </div>`;
+      createElement.innerHTML= containerPeople;
+      windowPeople.appendChild(createElement);
+      return containerPeople;
 });
 }
   peopleItems(filterItems("people", films).flat(1));
@@ -111,121 +87,75 @@ function peopleItems (films) {
     document.getElementById("windowLocations").style.display="none";
     document.getElementById("allPeople").style.display="";
     document.getElementById("windowPeople").style.display="flex";
-    
   })
 
-//document.getElementById('personajes').removeEventListener("click", e);    
-
-//filtrar directores 
-/*const filterDirector = document.getElementById('filterDir');
-filterDirector.addEventListener('change', () => {
-  director = document.getElementById('filterDir').value;
-  const allFilms = document.getElementById('windowFilm');
-  allFilms.innerHTML = '';
-
-   for (let i=0; i<filterDirectors(films, director).length; i++) {
-  const directorsResult = ` <div class="box1">
-  <img src= ${filterDirectors(films, director)[i].poster} id ="imgPosterFilm"></div> 
-  <div class = "containerTextFilm">
-    <ul>
-      <p>${filterDirectors(films,director)[i].title} (${filterDirectors(films, director)[i].release_date})</p>
-      <p>Score: ${filterDirectors(films,director)[i].rt_score}</p>
-    </ul>
-  </div>
-`;
-  allFilms.innerHTML += directorsResult
-
-}
-console.log(allFilms)
-
-    })*/
-
+//filtro directores
   const filterDirector = document.getElementById('filterDir');
-filterDirector.addEventListener('change', () => {
-  director = document.getElementById('filterDir').value;
+    filterDirector.addEventListener('change', () => {
+      director = document.getElementById('filterDir').value;
   const allFilms = document.getElementById('windowFilm');
-  allFilms.innerHTML = '';
+    allFilms.innerHTML = '';
 
    for (let i=0; i<filterDirectors(films, director).length; i++) {
-  const directorsResult = `<div id= "divCardFilm">
-  <div class="frontCard">
-  <div class="box1"><img src= ${filterDirectors(films, director)[i].poster} id ="imgPosterFilm"></div>         
-  <ul>
-    <p1><b>${filterDirectors(films,director)[i].title} </b></p1></br>
-    <p2><b>Score:</b> ${filterDirectors(films,director)[i].rt_score}</p2> </br>
-    <p3><b>Año:</b> ${filterDirectors(films, director)[i].release_date}</p3> </br>
-    </ul>
-    </div>
-    <div class="backCard">
-    <ul>
-       <p4>${filterDirectors(films, director)[i].description}</p4></br>
-      <p5><b>Productor:</b> ${filterDirectors(films, director)[i].producer}</p5></br>
-      <p6><b>Director: </b>${filterDirectors(films, director)[i].director}</p6>
-    </ul>
-    </div>
-</div>
+      const directorsResult = `<div id= "divCardFilm">
+        <div class="frontCard">
+          <div class="box1"><img src= ${filterDirectors(films, director)[i].poster} id ="imgPosterFilm"></div>         
+            <ul>
+              <p><b>${filterDirectors(films,director)[i].title} </b></p>
+              <p><b>Score:</b> ${filterDirectors(films,director)[i].rt_score}</p> 
+              <p><b>Release date:</b> ${filterDirectors(films, director)[i].release_date}</p> 
+            </ul>
+          </div>
+            <div class="backCard">
+              <ul>
+                <p>${filterDirectors(films, director)[i].description}</p>
+                <p><b>Producer:</b> ${filterDirectors(films, director)[i].producer}</p>
+                <p><b>Director:</b>${filterDirectors(films, director)[i].director}</p>
+              </ul>
+            </div>
+        </div>
 `;
   allFilms.innerHTML += directorsResult
-
 }
-console.log(allFilms)
-
     })
     
-
-    //filtrar productores
-
+//filtrar productores
 let producer = '';
-const filterProducer = document.getElementById('filterProd');
-filterProducer.addEventListener('change', () => {
-producer = document.getElementById('filterProd').value;
-const allProducers = document.getElementById('windowFilm'); //windowfilm(?)
-allProducers.innerHTML = '';
+  const filterProducer = document.getElementById('filterProd');
+    filterProducer.addEventListener('change', () => {
+      producer = document.getElementById('filterProd').value;
+        const allProducers = document.getElementById('windowFilm'); 
+        allProducers.innerHTML = '';
 
 for (let i=0; i<filterProducers(films, producer).length; i++) {
-const producerResult = ` <div id= "divCardFilm">
-<div class="frontCard">
-<div class="box1"><img src= ${filterProducers(films, producer)[i].poster} id ="imgPosterFilm"></div>         
-<ul>
-  <p1><b>${filterProducers(films,producer)[i].title} </b></p1></br>
-  <p2><b>Score:</b> ${filterProducers(films,producer)[i].rt_score}</p2> </br>
-  <p3><b>Año:</b> ${filterProducers(films, producer)[i].release_date}</p3> </br>
-  </ul>
-  </div>
-  <div class="backCard">
-  <ul>
-     <p13>${filterProducers(films, producer)[i].description}</p13></br>
-    <p14><b>Productor:</b> ${filterProducers(films, producer)[i].producer}</p14></br>
-    <p15><b>Director: </b>${filterProducers(films, producer)[i].director}</p15>
-  </ul>
-  </div>
-</div>`;
+  const producerResult = ` <div id= "divCardFilm">
+    <div class="frontCard">
+      <div class="box1"><img src= ${filterProducers(films, producer)[i].poster} id ="imgPosterFilm"></div>         
+        <ul>
+          <p><b>${filterProducers(films,producer)[i].title} </b></p>
+          <p><b>Score:</b> ${filterProducers(films,producer)[i].rt_score}</p>
+          <p><b>Release date:</b> ${filterProducers(films, producer)[i].release_date}</p>
+        </ul>
+      </div>
+        <div class="backCard">
+          <ul>
+            <p>${filterProducers(films, producer)[i].description}</p>
+            <p><b>Producer:</b> ${filterProducers(films, producer)[i].producer}</p>
+            <p><b>Director:</b>${filterProducers(films, producer)[i].director}</p>
+          </ul>
+        </div>
+      </div>`;
 allProducers.innerHTML += producerResult
-
 } 
 })
 
-  //pestaña películas
-
-  
-  
-
-
-
   //Pestaña de ubicaciones 
   const btnLocations = document.getElementById('ubicaciones');
-  btnLocations.addEventListener("click", () => {
-  document.getElementById("allFilms").style.display="none";
-    document.getElementById("allPeople").style.display="none";
-    document.getElementById("windowLocations").style.display="";
-  
- /*const input = document.querySelectorAll("input");
-  input.forEach(input => {
-    input.addEventListener("click", films => {
-      input.removeEventListener("click", films, true)
-    })
-  }) */
-  
+    btnLocations.addEventListener("click", () => {
+      document.getElementById("allFilms").style.display="none";
+      document.getElementById("allPeople").style.display="none";
+      document.getElementById("windowLocations").style.display="";
+
   const windowLocations = document.getElementById("windowLocations");
       function locationsItems (films) {
         films.forEach((film) => {
@@ -233,18 +163,18 @@ allProducers.innerHTML += producerResult
           createLocationsCards.setAttribute("class", 'containerCardLocations')
 
         const locationContainer = `<div id="divCardLocation">
-        <div class="frontCard2">
-        <div class="box3"><img src=${film.img} id="imgPosterLocations"></div>
-                <p>${film.name}</p>
+          <div class="frontCard2">
+            <div class="box3"><img src=${film.img} id="imgPosterLocations"></div>
+              <p>${film.name}</p>
             </div>
-          <div class="backCard2">
-            <ul>
-              <p><b>Clima:</b>${film.climate}</p>
-              <p><b>Terreno:</b>${film.terrain}</p>
-              <p><b>Agua superficial:</b>${film.surface_water}</p>
-            </ul>
+              <div class="backCard2">
+                <ul>
+                  <p><b>Climate:</b>${film.climate}</p>
+                  <p><b>Terrain:</b>${film.terrain}</p>
+                  <p><b>Surface water:</b>${film.surface_water}</p>
+                </ul>
+            </div>
           </div>
-        </div>
         `;
 
         createLocationsCards.innerHTML = locationContainer;
@@ -252,108 +182,40 @@ allProducers.innerHTML += producerResult
         return locationContainer;
       });
     }
-  
     locationsItems(filterItems("locations", films).flat());
     locationsItems(filterItems("vehicles", films).flat());
   })
-  /*btnLocations.removeEventListener("click").style.display="none";*/
 
   document.getElementById("ubicaciones").addEventListener("click", ()=>{
     
     document.getElementById("allFilms").style.display="none";
     document.getElementById("allPeople").style.display="none";
     document.getElementById("windowLocations").style.display="flex";
-  })
-
-    /*Pestaña de ubicaciones*/
+  }) 
  
- 
-/*Filtro personajes*/
-
-
-/*const filterPeoples = document.getElementById('filterGender');
-filterPeoples.addEventListener('change', (e) => {
-    let soloHTMLParaElFiltro = ""
-    filterGender(e.target.value, films).forEach(perritosHtml=>{
-        soloHTMLParaElFiltro+=generadorHtml(perritosHtml)
-    })
-
-    document.getElementById(windowPeople).innerHTML=soloHTMLParaElFiltro
-  })*/
-  /*
- gender = document.getElementById('filterGender').value;
-  const allFilmsPeople = document.getElementById('windowPeople');
-  allFilmsPeople.innerHTML = '';
-
-   for (let i=0; i<filterPeople(films, gender).length; i++) {
-  const genderResult = `<div id= "divCardPeople">
-  <div class="frontCard">
-  <div class="box1"><img src= ${filterPeople(films, gender).poster} id ="imgPosterFilm"></div>         
-  
-</div>
-`;
-  allFilmsPeople.innerHTML += genderResult
-
-}*/
-
-/*<ul>
-    <p1><b>${filterDirectors(films,director)[i].title} </b></p1></br>
-    <p2><b>Score:</b> ${filterDirectors(films,director)[i].rt_score}</p2> </br>
-    <p3><b>Año:</b> ${filterDirectors(films, director)[i].release_date}</p3> </br>
-    </ul>
-    </div>
-    <div class="backCard">
-    <ul>
-       <p4>${filterDirectors(films, director)[i].description}</p4></br>
-      <p5><b>Productor:</b> ${filterDirectors(films, director)[i].producer}</p5></br>
-      <p6><b>Director: </b>${filterDirectors(films, director)[i].director}</p6>
-    </ul>
-    </div>*/
-
-    
-
-   /* let gender = '';
-const filterGen = document.getElementById('filterPeople');
-filterGen.addEventListener('change', () => {
-gender = document.getElementById('filterPeople').value;
-const allPGen = document.getElementById('windowPeople'); //windowfilm(?)
-allPGen.innerHTML = '';
-
-for (let i=0; i<filterGender().length; i++) {
-const genderResult = ` <div id= "divCardFilm">
-<div class="frontCard">
-<div class="box1"><img src= ${films.img} id ="imgPosterFilm"></div>         
-  </div>
-</div>`;
-allPGen.innerHTML += genderResult
-
-} 
-})*/
-
-
 // ordenamiento 
 document.querySelector('#order').addEventListener('change', (e) => {
   let orderTitles = alphOrder(e.target.value, films);
-  let getFilms = document.getElementById('windowFilm');
-    getFilms.innerHTML = '';
-  orderTitles.forEach(title => {
-    const producerResult = ` <div id= "divCardFilm">
-    <div class="frontCard">
-    <div class="box1"><img src= ${title.poster} id ="imgPosterFilm"></div>         
-    <ul>
-      <p1><b>${title.title} </b></p1></br>
-      <p2><b>Score:</b> ${title.rt_score}</p2> </br>
-      <p3><b>Año:</b> ${title.release_date}</p3> </br>
-      </ul>
-      </div>
-      <div class="backCard">
-      <ul>
-         <p4>${title.description}</p4></br>
-        <p5><b>Productor:</b> ${title.producer}</p5></br>
-        <p6><b>Director: </b>${title.director}</p6>
-      </ul>
-      </div>
-  </div>`;
+    let getFilms = document.getElementById('windowFilm');
+      getFilms.innerHTML = '';
+        orderTitles.forEach(title => {
+          const producerResult = ` <div id= "divCardFilm">
+            <div class="frontCard">
+              <div class="box1"><img src= ${title.poster} id ="imgPosterFilm"></div>         
+                <ul>
+                  <p><b>${title.title} </b></p>
+                  <p><b>Score:</b> ${title.rt_score}</p>
+                  <p><b>Release date:</b> ${title.release_date}</p>
+                </ul>
+              </div>
+                <div class="backCard">
+                  <ul>
+                    <p>${title.description}</p>
+                    <p><b>Producer:</b> ${title.producer}</p>
+                    <p><b>Director:</b>${title.director}</p>
+                  </ul>
+                </div>
+            </div>`;
     
     getFilms.innerHTML += producerResult; 
   })  
