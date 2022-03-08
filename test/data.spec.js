@@ -1,23 +1,32 @@
-import { filterDirectors } from '../src/data.js';
+import { filterDirectors, filterProducers } from '../src/data.js';
+import {films, hayaoMiyazaki, isaoTakahata} from '../src/mockData1.js';
+import {alphOrder, orden} from '../src/data.js';
 
 describe('Test del filtrado', () => {
   it('is a function', () => {
     expect(typeof filterDirectors).toBe('function');
   });
+})
+  describe('Test del filtrado', () => {
+    it('is a function', () => {
+      expect(typeof filterProducers).toBe('function');
+    })
 
-  /*it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
+test('Filtrado de datos', () => {
+  expect(filterDirectors(films, 'Hayao Miyazaki')).toStrictEqual(hayaoMiyazaki)
+})
+})
 
+test('Filtrado de productores', () => {
+  expect(filterProducers(films, 'Isao Takahata')).toStrictEqual(isaoTakahata)
+})
 
-describe('anotherExample', () => {
+  describe('Test del ordenado', () => {
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+    expect(typeof alphOrder).toBe('function');
   });
+})
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});*/
+test('Test de ordenado', () => {
+expect(alphOrder.films).toBe(orden)
 })
