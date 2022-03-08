@@ -17,7 +17,7 @@ nav {
   nav ul {
     float: none;
     margin-right: 0px;
-    background-color: #FEE7BA;
+    background-color: none;
   }
   
  nav ul li{
@@ -103,8 +103,17 @@ nav {
  
 }
 #personajes, #ubicaciones, #films{
-  border: none;
-  background-color: #FEE7BA;
+  border-radius: 15px;
+  padding: 10%, 25%, 10%, 25%; 
+  width: 120px;
+  height: 40px;
+  background-color: #E7AC3E;
+  }
+
+  .filter {
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px;
   }
   
 .contenedorCardPeople, .contenedorCarFilm, .containerCardLocations{
@@ -214,5 +223,5 @@ footer{
 
 #filterFilms, #filterPeople{
   padding-top: 7%;
-  padding-left: 30%;
+  padding-left: 32%;
 }

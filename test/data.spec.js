@@ -1,6 +1,6 @@
 import { filterDirectors, filterProducers } from '../src/data.js';
 import {films, hayaoMiyazaki, isaoTakahata} from '../src/mockData1.js';
-import {alphOrder, orden} from '../src/data.js';
+import {alphOrder, orden, inversa} from '../src/data.js';
 
 describe('Test del filtrado', () => {
   it('is a function', () => {
@@ -29,4 +29,8 @@ test('Filtrado de productores', () => {
 
 test('Test de ordenado', () => {
 expect(alphOrder.films).toBe(orden)
+})
+
+test('Test de ordenado a la inversa', () => {
+  expect(alphOrder.films).toBe(inversa)
 })
